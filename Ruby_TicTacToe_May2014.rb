@@ -129,39 +129,27 @@ while ($board[0] + $board[1] + $board[2]) != $winX && ($board[3] + $board[4] + $
  		($board[6] + $board[7] + $board[8]) == $winX || ($board[0] + $board[3] + $board[6]) == $winX ||
  		($board[1] + $board[4] + $board[7]) == $winX || ($board[2] + $board[5] + $board[8]) == $winX || 
  		($board[0] + $board[4] + $board[8]) == $winX || ($board[6] + $board[4] + $board[2]) == $winX
+ 					puts "CONGRATULATIONS, #{$player_one.upcase}, you are the WINNER!!!"
+			puts "Sorry, #{$player_two}.  Better luck next time."
 			break # breaks loop if player one is winner
 		elsif ($board[0] != "   ") && ($board[1] != "   ") && ($board[2] != "   ") && ($board[3] != "   ") &&
 		($board[4] != "   ") && ($board[5] != "   ") && ($board[6] != "   ") && ($board[0] != "   ") &&
-		($board[8] != "   ") &&
+		($board[8] != "   ") 
+			puts "There has been a tie.  Better luck next time, #{$player_one} and #{$player_two}."
 			break # breaks loop if there are no more empty spaces left on board
 		else
 			puts player_two_play
 			puts print_board
+			if ($board[0] + $board[1] + $board[2])== $winO || ($board[3] + $board[4] + $board[5]) == $winO ||
+ 		($board[6] + $board[7] + $board[8]) == $winO || ($board[0] + $board[3] + $board[6]) == $winO ||
+ 		($board[1] + $board[4] + $board[7]) == $winO || ($board[2] + $board[5] + $board[8]) == $winO || 
+ 		($board[0] + $board[4] + $board[8]) == $winO || ($board[6] + $board[4] + $board[2]) == $winO 
+ 		puts "CONGRATULATIONS, #{$player_two.upcase}, you are the WINNER!!!"
+			puts "Sorry, #{$player_one}.  Better luck next time."
+			end
 		end
 end
 
-# method that determines which player wins (or if there has been a tie)
-def win
-	if ($board[0] + $board[1] + $board[2]) == $winX || ($board[3] + $board[4] + $board[5]) == $winX ||
- 		($board[6] + $board[7] + $board[8]) == $winX || ($board[0] + $board[3] + $board[6]) == $winX ||
- 		($board[1] + $board[4] + $board[7]) == $winX || ($board[2] + $board[5] + $board[8]) == $winX || 
- 		($board[0] + $board[4] + $board[8]) == $winX || ($board[6] + $board[4] + $board[2]) == $winX
-			puts "CONGRATULATIONS, #{$player_one.upcase}, you are the WINNER!!!"
-			puts "Sorry, #{$player_two}.  Better luck next time."
-
-	elsif ($board[0] + $board[1] + $board[2])== $winO || ($board[3] + $board[4] + $board[5]) == $winO ||
- 		($board[6] + $board[7] + $board[8]) == $winO || ($board[0] + $board[3] + $board[6]) == $winO ||
- 		($board[1] + $board[4] + $board[7]) == $winO || ($board[2] + $board[5] + $board[8]) == $winO || 
- 		($board[0] + $board[4] + $board[8]) == $winO || ($board[6] + $board[4] + $board[2]) == $winO
-			puts "CONGRATULATIONS, #{$player_two.upcase}, you are the WINNER!!!"
-			puts "Sorry, #{$player_one}.  Better luck next time."
-	else
-			puts "There has been a tie.  Better luck next time, #{$player_one} and #{$player_two}."
-	end
-end
-
-# notifies users of win or tie
-puts win
 
 
 
